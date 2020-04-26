@@ -9,14 +9,15 @@
 
     &-logo{
         text-align: center;
-        width: 15%;
+        width: 18rem;
         & img{
-            width: 50%;
+            width: 100%;
         }
     }
 
     &-search{
         width: 30%;
+        text-align: center;
         &-bar{
             padding: 2rem;
             width: 100%;
@@ -40,6 +41,11 @@
         padding: 1rem 3rem;
         &>span{
             margin-left: 1rem;
+        }
+
+        &-count{
+            border: 2px solid black;
+            padding: 0 7px;
         }
     }
 
