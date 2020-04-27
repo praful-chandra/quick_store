@@ -1,10 +1,14 @@
+//Importing Dependencies
 import React,{Component} from 'react';
 import {Route,withRouter} from 'react-router-dom';
+
+//importing Styles
 import './App.scss';
 
 
+//Importing custom components
 import Navbar from "./components/navbar/navbar_component";
-import HomeItems from "./components/HomeItems/homeItems_component";
+import HomeScreen from "./components/screens/HomeScreen/homeItems_screen";
 import Allcategory from "./components/screens/allcategory/allcategory_screen";
 import CategoryScreen from "./components/screens/category/category_screen";
 
@@ -21,7 +25,7 @@ class App extends Component{
     
         <div className="app">
           <Navbar/>
-          <Route exact path="/" component={HomeItems}  />
+          <Route exact path="/" component={HomeScreen}  />
           <Route exact path="/category" component={Allcategory} />
           <Route exact path="/category/:id" component={CategoryScreen} />
       </div>

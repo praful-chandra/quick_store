@@ -1,4 +1,4 @@
-.oddProduct {
+.productTile {
   &-wrapper {
     margin-bottom: 4rem;
     width: 100%;
@@ -6,49 +6,24 @@
     height: 30rem;
     box-shadow: 10px 10px 20px #eee;
   }
-  &-left {
-    width: 70%;
-    height: 100%;
-    background-color: rgba(241, 241, 241, 0.63);
-    display: flex;
-    align-items: center;
-  }
-  &-right {
-
-    width: 30%;
-    height: 100%;
-  }
-}
-
-.evenProduct {
-  &-wrapper {
-    margin-bottom: 4rem;
-    width: 100%;
-    display: flex;
-    height: 30rem;
-    box-shadow: -10px 10px 20px #eee;
-  }
-  &-left {
-    width: 30%;
-    height: 100%;
-  }
-  &-right {
-    width: 70%;
-    height: 100%;
-    background-color: rgba(241, 241, 241, 0.63);
-    display: flex;
-    align-items: center;
-  }
 }
 
 .product {
-  &-details {
-    &-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+  &-tiles {
+    width: 70%;
+    height: 100%;
+    background-color: rgba(241, 241, 241, 0.63);
+    display: flex;
+    align-items: center;
+  }
+  &-heading {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     &-title {
       font-size: 4rem;
@@ -82,14 +57,14 @@
       align-items: center;
       margin-left: 1rem;
 
-      & >div{
-        margin-right: 3rem ;
+      & > div {
+        margin-right: 3rem;
       }
     }
 
     &-item {
-        background-color: #fff;
-        flex: 0 0 auto;
+      background-color: #fff;
+      flex: 0 0 auto;
       width: 25rem;
       height: 25rem;
       box-shadow: 10px 10px 15px rgb(138, 138, 138);
@@ -99,34 +74,32 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s ease-in;
-        &:hover{
-            // margin-bottom: 4px;
-            box-shadow: 7px 15px 20px rgb(165, 165, 165);
-        }
-        &:active{
-            // margin-bottom: -4px;
-            box-shadow: 5px 5px 10px rgb(165, 165, 165);
-        }
-      &-info{
-          
-          margin: 1rem;
-          background-color: rgba(255, 255, 255, 0.719);
-          padding: 1rem;
-          font-size: 2rem;
-          font-family: "Permanent Marker", cursive;
-          width: 100%;
-          text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+      &:hover {
+        // margin-bottom: 4px;
+        box-shadow: 7px 15px 20px rgb(165, 165, 165);
+      }
+      &:active {
+        // margin-bottom: -4px;
+        box-shadow: 5px 5px 10px rgb(165, 165, 165);
+      }
+      &-info {
+        margin: 1rem;
+        background-color: rgba(255, 255, 255, 0.719);
+        padding: 1rem;
+        font-size: 2rem;
+        font-family: "Permanent Marker", cursive;
+        width: 100%;
+        text-align: center;
       }
     }
   }
 
-  &-scrollers{
-      cursor: pointer;
-      font-size: 4rem;
-      margin: 1rem;
-      color: rgb(218, 218, 218);
+  &-scrollers {
+    cursor: pointer;
+    font-size: 4rem;
+    margin: 1rem;
+    color: rgb(218, 218, 218);
   }
 }
-

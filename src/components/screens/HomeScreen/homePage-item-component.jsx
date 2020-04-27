@@ -2,11 +2,15 @@ import React from "react";
 
 import "./homeItems_styles.scss";
 
-function HomePageItem({ BoxNumber, title, imageUrl ,history }) {
+//Box Number from 1 - 5 only
+//Heavly bounded with the Grid Component 
+// Dont Use Individually
+
+function HomePageItem({ BoxNumber, title, imageUrl, history }) {
   return (
     <div
       onClick={() => {
-          history.push(`/category/${BoxNumber}`);
+        history.push(`/category/${BoxNumber}`);
       }}
       className={`home-wrapper-item home-wrapper-item-${BoxNumber}`}
     >

@@ -1,11 +1,12 @@
+//Importing Dependencies
 import React, { Component } from "react";
-import {withRouter} from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { withRouter } from "react-router-dom";
 
 import "./product_styles.scss";
 
-import ProductItem from "./productItem";
+//Importing Custom COmponents
+import ProductHeading from "./product_heading";
+import ProductTiles from "./productTiles_component";
 
 class OddProduct extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class OddProduct extends Component {
     };
   }
 
+  //This enables the button on the carosol to work
   scroll(direction, elemId) {
     let element = document.getElementById(elemId);
 
@@ -26,50 +28,17 @@ class OddProduct extends Component {
 
   render() {
     return (
-      <div className="oddProduct-wrapper">
-        <div className="oddProduct-left">
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className="product-scrollers"
-            onClick={() => {
-              this.scroll("left", `productWrapper${this.state.category.id}`);
-            }}
-          />
-          <div
-            className="product-items-wrapper"
-            id={`productWrapper${this.state.category.id}`}
-          >
-            {this.state.category.items.map((data, index) => {
-              return (
-                <ProductItem
-                
-                key={data.id}
-                  item={{
-                    imageUrl: data.imageUrl,
-                    name: data.name,
-                  }}
-                />
-              );
-            })}
-          </div>
-          <FontAwesomeIcon
-            icon={faArrowRight}
-            className="product-scrollers"
-            onClick={() => {
-              this.scroll("right", `productWrapper${this.state.category.id}`);
-            }}
-          />
-        </div>
-        <div className="oddProduct-right product-details-wrapper">
-          <div className="product-details">
-            <div className="product-details-title">
-              {this.state.category.title}
-            </div>
-            <div className="product-details-button" onClick={()=>{
-              this.props.history.push(`/category/${this.state.category.id}`)
-            }}>Shop Now</div>
-          </div>
-        </div>
+      <div className="productTile-wrapper">
+        {/* Carasol --- pass the above scroll function  */}
+        {/* This scroll function binds with the id, so *ID must be there to Every Component* */}
+        <ProductTiles category={this.state.category} scroll={this.scroll} />
+
+        {/* Heading to the ProductTile */}
+
+        <ProductHeading
+          item={this.state.category}
+          history={this.props.history}
+        />
       </div>
     );
   }

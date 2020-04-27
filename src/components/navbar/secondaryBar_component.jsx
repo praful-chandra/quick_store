@@ -1,7 +1,13 @@
+//Importing Dependencies
 import React from "react";
 import {Link} from "react-router-dom";
 
 import "./secondary_styles.scss";
+
+
+//This component displays the links just below the navbar
+
+//TODO: add functionality to most of the links
 
 function SecondaryBar(props) {
     return(

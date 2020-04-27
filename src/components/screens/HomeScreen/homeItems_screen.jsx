@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import "./homeItems_styles.scss";
 
 import HomePageItem from "./homePage-item-component";
-import SecondartBar from "../navbar/secondaryBar_component";
+import SecondartBar from "../../navbar/secondaryBar_component";
 
-class HomeItems extends Component {
+class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  sections = require("../../data/dummyCategories").default;
+  sections = require("../../../data/dummyCategories").default;
   render() {
     
     return (
@@ -20,6 +20,8 @@ class HomeItems extends Component {
         <div className="home-wrapper">
           {this.sections.map(({ id, imageUrl, title }) => {
             return (
+              //The homepage item must only contains boxes from 1 - 5 
+              // Hard coded GRID , if Used ELseWhere , must contain all the components
               <HomePageItem
                 key={id}
                 BoxNumber={id}
@@ -36,4 +38,4 @@ class HomeItems extends Component {
   }
 }
 
-export default HomeItems;
+export default HomeScreen;

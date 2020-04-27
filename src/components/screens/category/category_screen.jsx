@@ -1,3 +1,5 @@
+//renders the individual category
+
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
@@ -29,18 +31,23 @@ class HatScreen extends Component {
     if (!this.state.loaded) return <h1>Category not Found</h1>;
     return (
       <div className="category-wrapper">
-            <div className="category-hero" style={{backgroundImage : `url(${this.state.category.imageUrl})`}}>
-                <span className="category-hero-title">{this.state.category.title}</span>
-            </div>
+      {/* Main Heading Tile */}
+        <div
+          className="category-hero"
+          style={{ backgroundImage: `url(${this.state.category.imageUrl})` }}
+        >
+          <span className="category-hero-title">
+            {this.state.category.title}
+          </span>
+        </div>
 
-           <div className="category-items">
-               {
-                   this.state.category.items.map((item,index)=>{
-                       return <ProductItem item={item} key={index} />
-                   })
-               }
-           </div>
+        {/* All items Grid */}
 
+        <div className="category-items">
+          {this.state.category.items.map((item, index) => {
+            return <ProductItem item={item} key={index} />;
+          })}
+        </div>
       </div>
     );
   }

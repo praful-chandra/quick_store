@@ -1,10 +1,13 @@
+//Importing Dependencies
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
+//Importing Styles
 import "./navbar_style.scss";
 
+//LOGO
 const logo = require("./../../assets/images/logo.png");
 
 class Navbar extends Component {
@@ -16,12 +19,18 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navBar">
+
+      {/* Logo navbar to the loft */}
+
         <Link to="/">
           <div className="navBar-logo">
             <img src={logo} alt="logo" />
           </div>
         </Link>
         <div className="navBar-search">
+
+        {/* TODO: Add search functionality to the app */}
+
           {/* <input
           type="search"
           name="search"
@@ -30,6 +39,9 @@ class Navbar extends Component {
           placeholder="Search for some items .. "
         /> */}
         </div>
+
+        {/* NavBAr Right Items */}
+        
         <div className="navBar-right">
           <div className="navBar-right-cart">
             <FontAwesomeIcon icon={faShoppingCart} />
