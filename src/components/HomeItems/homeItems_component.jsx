@@ -10,44 +10,9 @@ class HomeItems extends Component {
     this.state = {};
   }
 
-  sections = [
-    {
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-      id: 1,
-      linkUrl: "shop/hats",
-    },
-
-    {
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-      size: "large",
-      id: 2,
-      linkUrl: "shop/womens",
-    },
-    {
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-      id: 3,
-      linkUrl: "shop/sneakers",
-    },
-    {
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-      size: "large",
-      id: 4,
-      linkUrl: "shop/mens",
-    },
-
-    {
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-      id: 5,
-      linkUrl: "shop/jackets",
-    },
-  ];
-
+  sections = require("../../data/dummyCategories").default;
   render() {
+    
     return (
       <div>
         <SecondartBar />
@@ -60,6 +25,7 @@ class HomeItems extends Component {
                 BoxNumber={id}
                 title={title}
                 imageUrl={imageUrl}
+                history={this.props.history}
               />
             );
           })}

@@ -40,7 +40,7 @@ class Navbar extends Component {
           {/*  SignedIN user */}
           <div className="navBar-right-user">
             <div className="navBar-right-user-picture">
-              <img src="https://robohash.org/1" alt="dp" srcset="" />
+              <img src="https://robohash.org/1" alt="dp"  />
             </div>
             <div className="navBar-right-user-name">
               <span>Hello</span>

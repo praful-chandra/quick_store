@@ -1,0 +1,35 @@
+.category{
+    &-wrapper{
+        max-width: 140rem;
+        width: 100%;
+        margin: 0 auto;
+
+    }
+    &-hero{
+        width: 100%;
+        height: 50rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        &-title{
+            font-family: "Permanent Marker", cursive;
+            font-size: 4rem;
+            background-color: rgba(255, 255, 255, 0.932);
+            padding: 2rem 5rem;
+            transform: translateY(50px);
+            box-shadow: 0px 5px 3px #eee;
+        }
+    }
+
+    &-items{
+        width: 100%;
+        margin-top: 10rem;
+        display: grid;
+        grid-gap: 5rem 5rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        justify-items: center;
+    }
+}

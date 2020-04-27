@@ -1,11 +1,17 @@
 import React from "react";
+
 import "./homeItems_styles.scss";
 
-function HomePageItem({ BoxNumber, title, imageUrl }) {
+function HomePageItem({ BoxNumber, title, imageUrl ,history }) {
   return (
-    <div className={`home-wrapper-item home-wrapper-item-${BoxNumber}`}>
+    <div
+      onClick={() => {
+          history.push(`/category/${BoxNumber}`);
+      }}
+      className={`home-wrapper-item home-wrapper-item-${BoxNumber}`}
+    >
       <div
-      className="home-wrapper-item-background"
+        className="home-wrapper-item-background"
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
