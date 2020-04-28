@@ -43,20 +43,30 @@ class Navbar extends Component {
         {/* NavBAr Right Items */}
         
         <div className="navBar-right">
-          <div className="navBar-right-cart">
+          {/* <div className="navBar-right-cart">
             <FontAwesomeIcon icon={faShoppingCart} />
             <span>
               Cart <span className="navBar-right-cart-count">9+</span>{" "}
             </span>
-          </div>
+          </div> */}
+
           {/*  SignedIN user */}
-          <div className="navBar-right-user">
+          
+          {/* <div className="navBar-right-user">
             <div className="navBar-right-user-picture">
               <img src="https://robohash.org/1" alt="dp"  />
             </div>
             <div className="navBar-right-user-name">
               <span>Hello</span>
               {"User name"}
+            </div>
+          </div> */}
+
+          {/* Not SignedIN */}
+          <div className="navBar-right-user">
+            <div className="navBar-right-user-name">
+             <Link to="/auth/login"> <span>Login</span></Link>
+
             </div>
           </div>
         </div>
