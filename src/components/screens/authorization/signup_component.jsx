@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import {withRouter} from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
+
 
 import "./authorization_style.scss";
 
@@ -10,6 +15,7 @@ class SignUp extends Component {
       name: "",
       email: "",
       password: "",
+      error :""
     };
   }
 
@@ -21,12 +27,35 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    Axios.post("/api/auth/user/signin",{
+      email : this.state.email,
+      password : this.state.password,
+      userName : this.state.name
+    }).then(result=>{
+      
+       if(result.data.token){
+          this.props.history.push(`/handleToken/${result.data.token}`);
+       }
+    }).catch(err=>{                
+      if(err)  
+      this.setState({
+        error :err.response.data.error
+      })
+    })
   };
 
   render() {
     return (
       <div className="auth-form">
         <div className="auth-form-header">SignUp</div>
+        {
+          this.state.error ? <div className="auth-form-error">
+            <span className="auth-form-error-message">{this.state.error}</span>
+            <span className="auth-form-error-close" onClick={()=>{this.setState({error : ""})}}>
+              <FontAwesomeIcon icon={faWindowClose} />
+            </span>
+        </div> : null
+        }
         <div className="auth-form-form">
           <form onSubmit={this.handleSubmit}>
             <input
@@ -71,4 +100,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
