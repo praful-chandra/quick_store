@@ -35,6 +35,11 @@
   &-right{
     display:flex;
     align-items: center;
+    & span {
+        & *{
+            display: inline-block;
+        }
+    }
     &-cart{
         cursor: pointer;
         font-size: 2rem;

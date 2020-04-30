@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import {Link,withRouter} from "react-router-dom";
 import Login from "./login_component";
 import SignUp from "./signup_component";
 
@@ -16,8 +16,7 @@ class Authorization extends Component {
 
 
   
-  render() {
-      
+  render() {      
       
     return (
       <div className="authScreen-wrapper">
@@ -36,4 +35,4 @@ class Authorization extends Component {
   }
 }
 
-export default Authorization;
+export default withRouter(Authorization);
