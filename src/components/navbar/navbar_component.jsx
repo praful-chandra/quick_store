@@ -2,13 +2,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 
 //Importing Styles
 import "./navbar_style.scss";
 //redux Actions
 import { setCurrentUser } from "../../redux/actions/user-actions";
+
+//Import Cart Component
+import CartBox from "./cartBox_component";
 
 //LOGO
 const logo = require("./../../assets/images/logo.png");
@@ -16,6 +18,14 @@ const logo = require("./../../assets/images/logo.png");
 //TODO : Create dropDown menu for signout
 
 class Navbar extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      scroll : window.scrollY
+    }
+  }
+
   signoutUser = () => {
     let user = null;
 
@@ -26,10 +36,16 @@ class Navbar extends Component {
   render() {
     const user = this.props.user.currentUser;
 
-    return (
-      <div className="navBar">
-        {/* Logo navbar to the loft */}
+    window.onscroll = (e)=>{
+     this.setState({
+       scroll : window.scrollY
+     })
+      
+    }
 
+    return (
+      <div className="navBar" style={{boxShadow : this.state.scroll > 50 ? "0px 10px 30px #aaa" : ""}}>
+        {/* Logo navbar to the loft */}
         <Link to="/">
           <div className="navBar-logo">
             <img src={logo} alt="logo" />
@@ -53,12 +69,7 @@ class Navbar extends Component {
           {user ? (
             <span>
               {/*  SignedIN user */}
-              <div className="navBar-right-cart">
-                <FontAwesomeIcon icon={faShoppingCart} />
-                <span>
-                  Cart <span className="navBar-right-cart-count">9+</span>{" "}
-                </span>
-              </div>
+                <CartBox />
 
               <div className="navBar-right-user">
                 <div className="navBar-right-user-name">

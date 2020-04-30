@@ -1,4 +1,5 @@
 import React from "react";
+import ProductHeadingButton from "./product-heading-button";
 
 function ProductHeading(props) {
   let { title, id } = props.item;
@@ -6,14 +7,7 @@ function ProductHeading(props) {
   return (
       <div className="product-heading">
         <div className="product-heading-title">{title}</div>
-        <div
-          className="product-heading-button"
-          onClick={() => {
-            props.history.push(`/category/${id}`);
-          }}
-        >
-          Shop Now
-      </div>
+        <ProductHeadingButton history={props.history} redirectUrl={`/category/${id}`} text="Shop Now" />
     </div>
   );
 }

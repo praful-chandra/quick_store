@@ -1,4 +1,4 @@
-//This comonent adds the carosol to the whole product tiles 
+//This comonent adds the carosol to the whole product tiles
 //must use with the container with fixed width
 
 import React from "react";
@@ -9,8 +9,6 @@ import ProductItem from "./productItem";
 
 function ProductTiles(props) {
   let category = props.category;
-
-  
 
   return (
     <div className="product-tiles">
@@ -26,15 +24,7 @@ function ProductTiles(props) {
         id={`productWrapper${category.id}`}
       >
         {category.items.map((data, index) => {
-          return (
-            <ProductItem
-              key={data.id}
-              item={{
-                imageUrl: data.imageUrl,
-                name: data.name,
-              }}
-            />
-          );
+          return <ProductItem key={data.id} item={data} />;
         })}
       </div>
       <FontAwesomeIcon

@@ -44,7 +44,10 @@ async componentDidMount(){
         <div className="app">
         {this.props.history.location.pathname.includes("/auth") ||
         this.props.history.location.pathname.includes("/handleToken") ? null : (
-          <Navbar />
+         <div>
+         <Navbar />
+         <div className="spacer"></div>
+         </div>
         )}
         <Route exact path="/" component={HomeScreen} />
         <Route exact path="/category" component={Allcategory} />

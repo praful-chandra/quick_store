@@ -1,0 +1,41 @@
+@mixin flexIt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cartItem{
+    &-wrapper{
+        height: 10rem;
+        display: flex;
+        margin: 2rem 0;
+    }
+
+    &-img{
+        width: 30%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      
+    }
+
+    &-info{
+        width: 60%;
+        font-size: 1.5rem;
+        color: #aaa;
+        align-items: center;
+        @include flexIt()
+    }
+
+    &-remove{
+        @include flexIt();
+        font-size:1.5rem;
+        & *{
+            cursor: pointer;
+
+        }
+        & *:hover{
+            color: #ff0000;
+        }
+    }
+}

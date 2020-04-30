@@ -63,6 +63,7 @@
     }
 
     &-item {
+      position: relative;
       background-color: #fff;
       flex: 0 0 auto;
       width: 25rem;
@@ -92,6 +93,26 @@
         font-family: "Permanent Marker", cursive;
         width: 100%;
         text-align: center;
+
+        &-addCart{
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          width: 3rem;
+          height: 3rem;
+          color: rgba(255, 255, 255, 0.616);
+          text-align: center;
+          background-color: rgba(255, 0, 85, 0.562);
+          border-radius: 100%;
+          font-size: 2rem;
+          padding-top: 4px;
+        }
+
+        &-price{
+          margin-left: 2rem;
+          text-align: right;
+          font-size: 1.5rem;
+        }
       }
     }
   }
