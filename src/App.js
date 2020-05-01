@@ -6,12 +6,13 @@ import Axios from "axios";
 import "./App.scss";
 
 //Importing custom components
+import AuthHandleToken from "./components/auth_TokenHandler";
 import Navbar from "./components/navbar/navbar_component";
 import HomeScreen from "./components/screens/HomeScreen/homeItems_screen";
 import Allcategory from "./components/screens/allcategory/allcategory_screen";
 import CategoryScreen from "./components/screens/category/category_screen";
 import AuthorizationScreen from "./components/screens/authorization/authorizationScreen";
-import AuthHandleToken from "./components/auth_TokenHandler";
+import CheckoutScreen from "./components/screens/checkout/checkout-screen";
 
 //Redux
 import { connect } from "react-redux";
@@ -74,6 +75,7 @@ class App extends Component {
             );
           }}
         />
+        <Route exact path="/checkout" component={CheckoutScreen} />
       </div>
     );
   }

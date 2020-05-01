@@ -9,6 +9,8 @@
         height: 10rem;
         display: flex;
         margin: 2rem 0;
+        display: flex;
+        justify-content: space-evenly;
     }
 
     &-img{
@@ -20,11 +22,26 @@
     }
 
     &-info{
-        width: 60%;
+        width: 50%;
         font-size: 1.5rem;
         color: #aaa;
         align-items: center;
         @include flexIt()
+    }
+
+    &-qty{
+        width: 10%;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        text-align: center;
+
+
+        &-buttons{
+            cursor: pointer;
+        }
     }
 
     &-remove{

@@ -20,3 +20,32 @@ export const removeItemFromCart = (cartItems,itemId)=>{
     return cartItems.filter(item=>item.id !== itemId)
     
 }
+
+export const increaseItemCount = (cartItems,itemId)=>{
+    const updatedItems =  cartItems.map(item=>{
+        if(item.id === itemId )
+            item.quantity +=1;
+
+        return item;
+    })
+
+    console.log(updatedItems);
+    return [...updatedItems];
+    
+
+
+}
+
+export const decreaseItemCount = (cartItems,itemId)=>{
+    return cartItems.map(item=>{
+
+        if(item.id === itemId && item.quantity > 0)
+            item.quantity -=1;
+
+        if(item.quantity === 0)
+            return removeItemFromCart(cartItems,itemId);
+        
+        return item;
+    })
+}
+
