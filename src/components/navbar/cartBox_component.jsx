@@ -11,6 +11,9 @@ import CartItem from "./cartItem-component";
 //Import CartActions
 import {removeItemsFromCart} from "../../redux/actions/cart-actions";
 
+//Import Selectors 
+import {getCartItems} from "../../redux/selectors/cart-selectors";
+
 class cartBox_component extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +28,7 @@ removeItem=(id)=>{
   }
 
 
-  render() {
- 
+  render() {    
     return (
       <div className="navBar-right-cart">
         <span
@@ -35,13 +37,13 @@ removeItem=(id)=>{
         >
           <FontAwesomeIcon icon={faShoppingCart} />
           <span>
-            Cart <span className="navBar-right-cart-count">{this.props.cart.cartItems.length}</span>{" "}
+            Cart <span className="navBar-right-cart-count">{this.props.cartItems.length}</span>{" "}
           </span>
         </span>
         {this.state.showConent ? (
           <div className="navBar-right-cart-content">
             <div className="navBar-right-cart-content-items-wrapper">
-                {  this.props.cart.cartItems.map(item=><CartItem key={item.id} item={item} deleteCB={this.removeItem}/>)}
+                {  this.props.cartItems.map(item=><CartItem key={item.id} item={item} deleteCB={this.removeItem}/>)}
             </div>
             <ProductHeadingButton
               history={this.props.history}
@@ -56,7 +58,7 @@ removeItem=(id)=>{
 }
 
 const mapStateToProps = state =>({
-    cart : state.cart
+    cartItems : getCartItems(state)
 })
 
 export default connect(mapStateToProps,{removeItemsFromCart})(withRouter(cartBox_component));

@@ -2,8 +2,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
-
+import Axios from "axios";
 //Importing Styles
 import "./navbar_style.scss";
 //redux Actions
@@ -12,18 +11,20 @@ import { setCurrentUser } from "../../redux/actions/user-actions";
 //Import Cart Component
 import CartBox from "./cartBox_component";
 
+//Import Selectors
+import { getCurrentUser } from "../../redux/selectors/users-selector";
+
 //LOGO
 const logo = require("./../../assets/images/logo.png");
 
 //TODO : Create dropDown menu for signout
 
 class Navbar extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      scroll : window.scrollY
-    }
+      scroll: window.scrollY,
+    };
   }
 
   signoutUser = () => {
@@ -31,20 +32,26 @@ class Navbar extends Component {
 
     this.props.setCurrentUser(user);
     localStorage.removeItem("jwtToken");
+
+    Axios.post("/api/auth/user/logout")
   };
 
   render() {
-    const user = this.props.user.currentUser;
+    const user = this.props.currentUser;
 
-    window.onscroll = (e)=>{
-     this.setState({
-       scroll : window.scrollY
-     })
-      
-    }
+    window.onscroll = (e) => {
+      this.setState({
+        scroll: window.scrollY,
+      });
+    };
 
     return (
-      <div className="navBar" style={{boxShadow : this.state.scroll > 50 ? "0px 10px 30px #aaa" : ""}}>
+      <div
+        className="navBar"
+        style={{
+          boxShadow: this.state.scroll > 50 ? "0px 10px 30px #aaa" : "",
+        }}
+      >
         {/* Logo navbar to the loft */}
         <Link to="/">
           <div className="navBar-logo">
@@ -69,7 +76,7 @@ class Navbar extends Component {
           {user ? (
             <span>
               {/*  SignedIN user */}
-                <CartBox />
+              <CartBox />
 
               <div className="navBar-right-user">
                 <div className="navBar-right-user-name">
@@ -100,7 +107,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  currentUser : getCurrentUser(state)
 });
 
 export default connect(mapStateToProps, { setCurrentUser })(Navbar);

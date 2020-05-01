@@ -31,7 +31,7 @@ class Login extends Component {
       email : this.state.email,
       password : this.state.password
     }).then(result=>{
-
+      
        if(result.data.token){
           this.props.history.push(`/handleToken/${result.data.token}`);
        }
