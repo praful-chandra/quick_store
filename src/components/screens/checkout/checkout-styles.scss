@@ -37,6 +37,14 @@
        @include content();
     }
 
+    &-total{
+        width: 100%;
+        text-align: right;
+        font-size: 3rem;
+        color:#aaa;
+        border-top: 3px solid ;
+    }
+
 }
 
 .checkoutItem{

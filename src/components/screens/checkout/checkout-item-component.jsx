@@ -5,10 +5,12 @@ import {faTrash,faCaretUp,faCaretDown} from "@fortawesome/free-solid-svg-icons";
 
 import {removeItemsFromCart,increaseItemCount,decreaseItemCount} from "../../../redux/actions/cart-actions";
 
+
 import "./checkout-styles.scss";
 
 
 function CheckoutItem(props) {
+    
     return(
         <div className="checkoutItem">
             <div style={{backgroundImage:`url(${props.item.imageUrl})`}} className="checkoutItem-img" > </div>
@@ -30,6 +32,7 @@ function CheckoutItem(props) {
         </div>
     )
 }
+
 
 
 

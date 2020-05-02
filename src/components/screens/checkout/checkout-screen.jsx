@@ -1,8 +1,11 @@
 import React,{Component} from "react";
 import {connect} from "react-redux";
-import {getCartItems} from "../../../redux/selectors/cart-selectors";
+import {getCartItems,getTotalCartAmount} from "../../../redux/selectors/cart-selectors";
 
 import CheckoutItem from "./checkout-item-component";
+
+
+
 
 import "./checkout-styles.scss";
 
@@ -25,6 +28,9 @@ class CheckoutScreen extends Component {
                    this.props.cartItems.map(item=> <CheckoutItem key={item.id} item={item}/>)
                }
 
+               <div className="checkout-total">
+                Total :  Rs. {this.props.totalAMount}
+               </div>
             </div>
         );
     }
@@ -32,7 +38,8 @@ class CheckoutScreen extends Component {
 
 
 const mapoStateToProps = state =>({
-    cartItems : getCartItems(state)
+    cartItems : getCartItems(state),
+    totalAMount : getTotalCartAmount(state)
 })
 
 export default connect(mapoStateToProps)(CheckoutScreen);
