@@ -9,24 +9,23 @@ import "./checkout-styles.scss";
 
 
 function CheckoutItem(props) {
-    let item  = props.item
     return(
         <div className="checkoutItem">
-            <div style={{backgroundImage:`url(${item.imageUrl})`}} className="checkoutItem-img" > </div>
-            <div className="checkoutItem-name">{item.name}</div>
+            <div style={{backgroundImage:`url(${props.item.imageUrl})`}} className="checkoutItem-img" > </div>
+            <div className="checkoutItem-name">{props.item.name}</div>
             <div className="checkoutItem-price">
-            Rs. {item.price} X 
-            <FontAwesomeIcon icon={faCaretUp}  style={{cursor:"pointer"}} onClick={()=>props.increaseItemCount(item.id)}/>
+            Rs. {props.item.price} X 
+            <FontAwesomeIcon icon={faCaretUp}  style={{cursor:"pointer"}} onClick={()=>{props.increaseItemCount(props.item.id)}}/>
 
-             {item.quantity}
-               <FontAwesomeIcon icon={faCaretDown} style={{cursor:"pointer"}} onClick={()=>props.decreaseItemCount(item.id)}/>
+             {props.item.quantity}
+               <FontAwesomeIcon icon={faCaretDown} style={{cursor:"pointer"}} onClick={()=>{props.decreaseItemCount(props.item.id)}}/>
             </div>
             <div className="checkoutItem-totalPrice">
-               Rs. {item.price * item.quantity}
+               Rs. {props.item.price * props.item.quantity}
             </div>
         
-            <div className="checkoutItem-remove" onClick={()=>removeItemsFromCart(item.id)}>
-            <FontAwesomeIcon icon={faTrash} />
+            <div className="checkoutItem-remove" >
+            <FontAwesomeIcon icon={faTrash}  onClick={()=>{props.removeItemsFromCart(props.item.id)}}/>
              </div>
         </div>
     )

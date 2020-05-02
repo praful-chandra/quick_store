@@ -27,7 +27,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
 
     case REMOVE_ITEMS_FROM_CART: {
       let oldId = action.payload;
-
       return {
         ...state,
         cartItems: removeItemFromCart(state.cartItems, oldId),
