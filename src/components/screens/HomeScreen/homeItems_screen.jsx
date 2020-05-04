@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import "./homeItems_styles.scss";
 
 import HomePageItem from "./homePage-item-component";
@@ -10,7 +11,7 @@ class HomeScreen extends Component {
     this.state = {};
   }
 
-  sections = require("../../../data/dummyCategories").default;
+  sections = this.props.items;
   render() {
     
     return (
@@ -38,4 +39,8 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+const mapStateToProps = state =>({
+  items : state.items.items
+})
+
+export default connect(mapStateToProps)(HomeScreen);

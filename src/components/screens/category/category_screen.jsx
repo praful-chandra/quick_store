@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
+import {connect} from "react-redux";
 import ProductItem from "../../products/productItem";
 
 import "./category_styles.scss";
@@ -12,7 +12,7 @@ class HatScreen extends Component {
     super(props);
 
     this.state = {
-      category: require("../../../data/dummyCategories").default.filter(
+      category: this.props.items.filter(
         (cate) => cate.id === Number(this.props.match.params.id)
       )[0],
       loaded: false,
@@ -53,4 +53,8 @@ class HatScreen extends Component {
   }
 }
 
-export default withRouter(HatScreen);
+const mapStateToProps = state =>({
+  items : state.items.items
+})
+
+export default connect(mapStateToProps)(withRouter(HatScreen));

@@ -1,7 +1,7 @@
 //Renders the All category page..
 
 import React, { Component } from "react";
-
+import {connect} from "react-redux";
 import OddProduct from "../../products/oddProduct_component";
 import EvenProduct from "../../products/evenProduct_component";
 
@@ -16,7 +16,7 @@ class AllcategoryScreen extends Component {
   }
 
   componentDidMount() {
-    let categories = require("../../../data/dummyCategories").default;
+    let categories = this.props.items;
     this.setState({
       categories,
     });
@@ -34,4 +34,8 @@ class AllcategoryScreen extends Component {
   }
 }
 
-export default AllcategoryScreen;
+const mapStateToProps = state =>({
+  items : state.items.items
+})
+
+export default connect(mapStateToProps)(AllcategoryScreen);
