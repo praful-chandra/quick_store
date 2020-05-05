@@ -6,11 +6,11 @@ import "./homeItems_styles.scss";
 //Heavly bounded with the Grid Component 
 // Dont Use Individually
 
-function HomePageItem({ BoxNumber, title, imageUrl, history }) {
+function HomePageItem({id, BoxNumber, title, imageUrl, history }) {
   return (
     <div
       onClick={() => {
-        history.push(`/category/${BoxNumber}`);
+        history.push(`/category/${id}`);
       }}
       className={`home-wrapper-item home-wrapper-item-${BoxNumber}`}
     >

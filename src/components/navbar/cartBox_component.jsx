@@ -41,7 +41,7 @@ class cartBox_component extends Component {
             <div className="navBar-right-cart-content-items-wrapper">
               {this.props.cartItems.length > 0 ? (
                 this.props.cartItems.map((item) => (
-                  <CartItem key={item.id} item={item} />
+                  <CartItem key={item._id} item={item} />
                 ))
               ) : (
                 <div>Cart is empty</div>

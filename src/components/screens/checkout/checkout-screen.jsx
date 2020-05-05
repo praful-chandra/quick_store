@@ -25,7 +25,7 @@ class CheckoutScreen extends Component {
                     <div className="checkout-header-remove">Remove</div>
                 </div>
                {
-                   this.props.cartItems.map(item=> <CheckoutItem key={item.id} item={item}/>)
+                   this.props.cartItems.map(item=> <CheckoutItem key={item._id} item={item}/>)
                }
 
                <div className="checkout-total">

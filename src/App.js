@@ -17,9 +17,9 @@ import CheckoutScreen from "./components/screens/checkout/checkout-screen";
 //Redux
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/actions/user-actions";
-
 //Import Selectors
 import { getCurrentUser } from "./redux/selectors/users-selector";
+
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +37,8 @@ class App extends Component {
       const result = await Axios.post("/api/auth/user/validateuser");
       this.props.setCurrentUser({ ...result.data });
     }
+
+
   }
 
   static getDerivedStateFromProps(props, state) {

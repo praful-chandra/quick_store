@@ -17,17 +17,17 @@ function CheckoutItem(props) {
             <div className="checkoutItem-name">{props.item.name}</div>
             <div className="checkoutItem-price">
             Rs. {props.item.price} X 
-            <FontAwesomeIcon icon={faCaretUp}  style={{cursor:"pointer"}} onClick={()=>{props.increaseItemCount(props.item.id)}}/>
+            <FontAwesomeIcon icon={faCaretUp}  style={{cursor:"pointer"}} onClick={()=>{props.increaseItemCount(props.item._id)}}/>
 
              {props.item.quantity}
-               <FontAwesomeIcon icon={faCaretDown} style={{cursor:"pointer"}} onClick={()=>{props.decreaseItemCount(props.item.id)}}/>
+               <FontAwesomeIcon icon={faCaretDown} style={{cursor:"pointer"}} onClick={()=>{props.decreaseItemCount(props.item._id)}}/>
             </div>
             <div className="checkoutItem-totalPrice">
                Rs. {props.item.price * props.item.quantity}
             </div>
         
             <div className="checkoutItem-remove" >
-            <FontAwesomeIcon icon={faTrash}  onClick={()=>{props.removeItemsFromCart(props.item.id)}}/>
+            <FontAwesomeIcon icon={faTrash}  onClick={()=>{props.removeItemsFromCart(props.item._id)}}/>
              </div>
         </div>
     )

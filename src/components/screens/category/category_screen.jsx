@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {connect} from "react-redux";
 import ProductItem from "../../products/productItem";
-
+import Axios from "axios";
 import "./category_styles.scss";
 
 class HatScreen extends Component {
@@ -12,22 +12,27 @@ class HatScreen extends Component {
     super(props);
 
     this.state = {
-      category: this.props.items.filter(
-        (cate) => cate.id === Number(this.props.match.params.id)
-      )[0],
+      category: null,
       loaded: false,
     };
   }
 
-  componentDidMount() {
-    if (this.state.category !== undefined) {
+ async componentDidMount() {
+
+    let category = await Axios.post("/api/shop/itembyid",{
+      id : this.props.match.params.id
+    })
+    category = category.data;
+    if (category) {
       this.setState({
         loaded: true,
+        category
       });
     }
   }
 
   render() {
+    
     if (!this.state.loaded) return <h1>Category not Found</h1>;
     return (
       <div className="category-wrapper">

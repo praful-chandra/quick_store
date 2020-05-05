@@ -29,7 +29,7 @@ function CartItem({item,removeItemsFromCart,size}) {
             </div>
         </div>
         <div className="cartItem-remove">
-            <FontAwesomeIcon icon={faTrash} onClick={()=>removeItemsFromCart(item.id)} />
+            <FontAwesomeIcon icon={faTrash} onClick={()=>removeItemsFromCart(item._id)} />
         </div>
     </div>
 }

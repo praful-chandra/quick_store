@@ -24,7 +24,7 @@ function ProductTiles(props) {
         id={`productWrapper${category.id}`}
       >
         {category.items.map((data, index) => {
-          return <ProductItem key={data.id} item={data} />;
+          return <ProductItem  key={data._id} item={data} />;
         })}
       </div>
       <FontAwesomeIcon
